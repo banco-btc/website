@@ -1,5 +1,0 @@
-
-
-function privKeyGen() {
-    var pk = 
-}
