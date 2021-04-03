@@ -20,12 +20,15 @@
     "bitcoinjs-lib": "^5.2.0",
     "bootstrap": "^4.6.0",
     "bs58": "^4.0.1",
-    "cryptojs": "^2.5.3",
-    "eccrypto": "^1.1.6"
+    "crypto-js": "^4.0.0",
+    "eccrypto": "^1.1.6",
+    "openssl": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
     "babel-preset-es2015": "^6.24.1",
-    "babelify": "^10.0.0"
+    "babelify": "^10.0.0",
+    "tinyify": "^3.0.0"
   }
 }

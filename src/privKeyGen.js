@@ -1,8 +1,7 @@
-var Crypto = exports.Crypto = require('.\cryptojs\lib\Crypto.js').Crypto;
+import * as btc from "bitcoinjs-lib";
 
 function privKeyGen() {
-    var privKey = Crypto.util.randomBytes(32);
-    var privKeyHex = Crypto.util.bytesToHex(privKey);
+    var privKey = btc.ECPair.makeRandom();
     document.getElementById("privKey").innerHTML = privKey;
-    document.getElementById("privKeyHex").innerHTML = privKeyHex;
+    
 }
