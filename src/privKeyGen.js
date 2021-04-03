@@ -1,7 +1,9 @@
-import * as btc from "bitcoinjs-lib";
+var btc = require('bitcoinjs-lib');
+var openssl = require('openssl');
+var crypto = require('crypto');
 
 function privKeyGen() {
-    var privKey = btc.ECPair.makeRandom();
+    var privKey = crypto.randomBytes(32);
     document.getElementById("privKey").innerHTML = privKey;
     
 }
