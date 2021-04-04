@@ -5,15 +5,18 @@ const crypto = require('crypto');
 
 window.privKeyGen = function(){
     //Gerar private key
-    var privKeyArray = crypto.randomBytes(32);
-    var privKeyHex = privKeyArray.toString('hex');
+    var privKeyArr = crypto.randomBytes(32);
+    var privKeyHex = privKeyArr.toString('hex');
     document.getElementById("privKeyHex").innerHTML = privKeyHex.toUpperCase();
     qr.toCanvas(document.getElementById('privKeyHexQR'), privKeyHex, function(error){
         if(error) {console.error(error)}
     })
     //Gerar WIF Mainnet
     var vers_mainnet = '80';
-    var firstSHA256 = crypto.createHash('sha256').update(privKeyArray).digest('hex');
+    var privKeyWithVerHex = ver_mainnet + privKeyHex;
+    var privKeyWithVerBytes = privKeyWithVerHex.
+    var firstSHA256 = crypto.createHash('sha256').update(Buffer.from(privKeyArr)).digest('hex');
+    document.getElementById("firstSHA256-mainnet").innerHTML = "AQUI:" + firstSHA256;
     console.log(privKeyHex);
     console.log(firstSHA256);
 
