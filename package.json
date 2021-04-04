@@ -19,7 +19,7 @@
   "homepage": "https://github.com/banco-btc/website#readme",
   "dependencies": {
     "bitcoinjs-lib": "^5.2.0",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.0-beta3",
     "bs58": "^4.0.1",
     "crypto-js": "^4.0.0",
     "eccrypto": "^1.1.6",
