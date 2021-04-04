@@ -23,6 +23,7 @@
     "bootstrap-icons": "^1.4.1",
     "bs58": "^4.0.1",
     "crypto-js": "^4.0.0",
+    "crypto-price": "0.0.6",
     "eccrypto": "^1.1.6",
     "openssl": "^1.1.0",
     "qrcode": "^1.4.4"

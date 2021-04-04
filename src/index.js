@@ -3,6 +3,15 @@ import * as btc from "bitcoinjs-lib";
 import * as qr from "qrcode";
 const crypto = require('crypto');
 
+//Ver preço BTC em EUR
+let price = require('crypto-price')
+price.getCryptoPrice('EUR', 'BTC').then(obj => { // Base for ex - USD, Crypto for ex - ETH
+document.getElementById("btcprice").innerHTML = Math.round(obj.price * 100) / 100; 
+console.log(obj.price)
+}).catch(err => {
+console.log(err)
+})
+
 window.privKeyGen = function(){
     //Gerar private key
     var privKeyArr = crypto.randomBytes(32);
@@ -14,7 +23,7 @@ window.privKeyGen = function(){
     //Gerar WIF Mainnet
     var vers_mainnet = '80';
     var privKeyWithVerHex = ver_mainnet + privKeyHex;
-    var privKeyWithVerBytes = privKeyWithVerHex.
+    //var privKeyWithVerBytes = privKeyWithVerHex;
     var firstSHA256 = crypto.createHash('sha256').update(Buffer.from(privKeyArr)).digest('hex');
     document.getElementById("firstSHA256-mainnet").innerHTML = "AQUI:" + firstSHA256;
     console.log(privKeyHex);
@@ -22,10 +31,6 @@ window.privKeyGen = function(){
 
     //Gerar WIF Testnet
     var vers_testnet = 'EF';
-
-
-
-
 
 
 
