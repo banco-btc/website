@@ -39241,6 +39241,7 @@ window.privKeyGen = function () {
 
   var vers_mainnet = '80';
   var firstSHA256 = crypto.createHash('sha256').update(privKeyArray).digest('hex');
+  document.getElementById("firstSHA256-mainnet").innerHTML = firstSHA256;
   console.log(privKeyHex);
   console.log(firstSHA256); //Gerar WIF Testnet
 
