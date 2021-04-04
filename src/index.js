@@ -16,7 +16,7 @@ const btc = require('bitcoinjs-lib');
 
 
 window.privKeyGen = function(){
-    var privKey = btc.ECPair.makeRandom({ compressed: false });   //makeRandom(btc.networks.bitcoin);
+    var privKey = btc.ECPair.makeRandom({ compressed: false, network: btc.networks.bitcoin });   //makeRandom(btc.networks.bitcoin);
     console.log(privKey);
     var privKeyHex = privKey.privateKey.toString('hex').toUpperCase();
     var wif = privKey.toWIF();

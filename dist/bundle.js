@@ -25980,7 +25980,8 @@ var btc = require('bitcoinjs-lib'); //document.getElementById("wif").innerHTML =
 
 window.privKeyGen = function () {
   var privKey = btc.ECPair.makeRandom({
-    compressed: false
+    compressed: false,
+    network: btc.networks.bitcoin
   }); //makeRandom(btc.networks.bitcoin);
 
   console.log(privKey);

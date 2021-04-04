@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pey": "browserify ./src/index.js -o ./dist/bundle.js -t babelify"
+    "brow": "browserify ./src/index.js -o ./dist/bundle.js -t babelify"
   },
   "repository": {
     "type": "git",
