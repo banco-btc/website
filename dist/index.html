@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Banco BTC</title>
+    <script src="bundle.js"></script>
 </head>
 <body>
-    <button onclick="criar()">Gerar private key</button>
-    <div id="privKey"></div>
+    <button onclick="privKeyGen()">Gerar private key</button>
+    <h3>Private key:</h3>
+    <div id="privKeyHex"></div>
+    <h3>Private key em WIF em base58 não comprimida (começa com L ou K):</h3>
     <div id="wif"></div>
 
-    <script src="bundle.js"></script>
+    
 </body>
 </html>
