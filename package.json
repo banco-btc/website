@@ -23,7 +23,8 @@
     "bs58": "^4.0.1",
     "crypto-js": "^4.0.0",
     "eccrypto": "^1.1.6",
-    "openssl": "^1.1.0"
+    "openssl": "^1.1.0",
+    "qrcode": "^1.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
