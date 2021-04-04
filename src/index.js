@@ -2,7 +2,6 @@
 import * as btc from "bitcoinjs-lib";
 import * as qr from "qrcode";
 const crypto = require('crypto');
-import 'bootstrap/dist/css/bootstrap.css';
 
 window.privKeyGen = function(){
 
