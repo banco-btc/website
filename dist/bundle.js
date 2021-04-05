@@ -21192,11 +21192,19 @@ module.exports={
     "unit": "istanbul test _mocha --reporter=spec test/index.js",
     "test": "npm run lint && npm run unit",
     "version": "grunt dist && git add dist/"
+<<<<<<< Updated upstream
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:indutny/elliptic"
   },
+=======
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:indutny/elliptic"
+  },
+>>>>>>> Stashed changes
   "keywords": [
     "EC",
     "Elliptic",
@@ -32968,7 +32976,11 @@ check.toJSON = () => {
 };
 
 }).call(this)}).call(this,{"isBuffer":require("../../../../../../../../../AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js")})
+<<<<<<< Updated upstream
 },{"../../../../../../../../../AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js":133,"../../script":237,"../multisig":240,"../pubkey":244,"../pubkeyhash":247,"typeforce":371}],260:[function(require,module,exports){
+=======
+},{"../../../../../../../../../AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js":133,"../../script":237,"../multisig":240,"../pubkey":244,"../pubkeyhash":247,"typeforce":374}],260:[function(require,module,exports){
+>>>>>>> Stashed changes
 'use strict';
 // OP_0 {scriptHash}
 Object.defineProperty(exports, '__esModule', { value: true });
@@ -38767,7 +38779,11 @@ for (var typeName in types) {
 module.exports = types
 
 }).call(this)}).call(this,{"isBuffer":require("../../../../../../AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js")})
+<<<<<<< Updated upstream
 },{"../../../../../../AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js":133,"./errors":369,"./native":372}],371:[function(require,module,exports){
+=======
+},{"../../../../../../AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js":133,"./errors":372,"./native":375}],374:[function(require,module,exports){
+>>>>>>> Stashed changes
 var ERRORS = require('./errors')
 var NATIVE = require('./native')
 
