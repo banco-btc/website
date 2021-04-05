@@ -1,25 +1,20 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Button } from 'react-bootstrap';
+import { PrivKeyGen } from "./PrivKeyGen";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <h2>Clica aqui para criar uma Private Key</h2>
+        <Button onClick={PrivKeyGen} id="btn_pkg" variant="link">
+          <img src={logo} className="Btc-spinner" alt="logo" />
+        </Button>{' '}
+        <div id="pk_h"></div>
+        <canvas id="pk_h_qr"></canvas>
+      </div>
     </div>
   );
 }
-
-export default App;
