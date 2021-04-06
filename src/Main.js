@@ -13,6 +13,7 @@ export default function Main() {
           <img src={logo} className="Btc-spinner" alt="logo" />
         </Button>{' '}
         <div id="pk_h"></div>
+        <h4>Código QR:</h4>
         <canvas id="pk_h_qr"></canvas>
       </div>
     </div>
