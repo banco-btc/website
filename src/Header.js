@@ -1,4 +1,6 @@
+import { Alert } from 'bootstrap';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+let btc_price = require('crypto-price');
 
 export default function Header() {
     return (
@@ -8,6 +10,7 @@ export default function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
+              <span id="btc_price"></span>
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#link">Link</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -27,3 +30,11 @@ export default function Header() {
       </div>
     );
   }
+
+
+btc_price.getCryptoPrice('EUR', 'BTC').then(obj => {
+    document.getElementById("btc_price").innerHTML = Math.round(obj.price * 100) / 100;
+}).catch(err => {
+    console.log(err);
+})
+console.log(obj);
