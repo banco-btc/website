@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Main from './Main';
 import Header from './Header';
 //import Footer from './Footer';
 import reportWebVitals from './reportWebVitals';
@@ -16,7 +16,7 @@ ReactDOM.render(
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Main />
   </React.StrictMode>,
   document.getElementById('main')
 );

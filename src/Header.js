@@ -2,7 +2,7 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 
 export default function Header() {
     return (
-      <div className="App">
+      <div className="Main">
         <Navbar bg="light" expand="lg">
           <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

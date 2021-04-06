@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './Main.css';
 import { Button } from 'react-bootstrap';
 import { PrivKeyGen } from "./PrivKeyGen";
 
-export default function App() {
+export default function Main() {
   return (
-    <div className="App">
+    <div className="Main">
       <div>
         <h2>Clica aqui para criar uma Private Key</h2>
         <Button onClick={PrivKeyGen} id="btn_pkg" variant="link">
