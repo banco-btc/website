@@ -1,23 +1,23 @@
 .Main {
   text-align: center;
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   color: white;
 }
-
-.Main-logo {
-  height: 40vmin;
+.Btc-btn {
+  background-color: #f7921b;
+  color: #f7921b;
+}
+.Btc-spinner {
+  height: 25vmin;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: no-preference) {
-  .Main-logo {
+  .Btc-spinner {
     animation: Btc-spinner infinite 20s linear;
   }
 }
-
 @keyframes Btc-spinner {
   from {
     transform: rotate(0deg);
