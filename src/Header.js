@@ -2,8 +2,8 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 
 export default function Header() {
     return (
-      <div className="Main">
-        <Navbar bg="light" expand="lg">
+      <div className="Header">
+        <Navbar bg="light" expand="md">
           <Navbar.Brand href="#home">Banco BTC</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
