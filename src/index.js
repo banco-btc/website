@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Header';
 import Main from './Main';
-//import Footer from './Footer';
+import Footer from './Footer';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -19,14 +19,14 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('main')
 );
-
-/*ReactDOM.render(
+/*
+ReactDOM.render(
   <React.StrictMode>
     <Footer />
   </React.StrictMode>,
   document.getElementById('footer')
-);*/
-
+);
+*/
 
 
 
