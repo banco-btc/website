@@ -5,10 +5,6 @@
   flex-direction: column;
   color: white;
 }
-.Btc-btn {
-  background-color: #f7921b;
-  color: #f7921b;
-}
 .Btc-spinner {
   height: 25vmin;
   pointer-events: none;

@@ -1,19 +1,16 @@
 import { Alert } from 'bootstrap';
-import React from 'react';
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-let btc_price = require('crypto-price');
+import logo from './logo.svg';
+const btc_price = require('crypto-price');
 
 export default function Header() {
-  
-  const printar = () => {
-    return('Olá');
-  }
-
   return (
     <div className="Header">
       <Navbar bg="light" expand="md">
-        <Navbar.Brand href="#home">Banco BTC</Navbar.Brand>
-        <h2>{printar()}</h2>
+        <Navbar.Brand href="#home">
+          <img src={logo} className="d-inline-block" />
+          Banco BTC
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
