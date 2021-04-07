@@ -8,9 +8,7 @@ export default function Main() {
     <Container fluid="md" className="Main">
       <Row>
         <Col><PrivKeyGen /></Col>
-        <Col></Col>
       </Row>
-      
     </Container>
   );
 }
