@@ -5,8 +5,9 @@ import PrivKeyGen from "./Components/PrivKeyGen";
 
 export default function Main() {
   return (
-    <Container fluid="md" className="Main">
-      <Row>
+    <Container fluid="true" className="Main">
+      <Row className="p-2">
+        <Col xs={12} xl={9}><PrivKeyGen /></Col>
         <Col><PrivKeyGen /></Col>
       </Row>
     </Container>
