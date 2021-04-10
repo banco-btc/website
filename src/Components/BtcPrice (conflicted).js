@@ -2,29 +2,32 @@ import React, { useState } from 'react';
 import jquery from 'jquery';
 
 export default function BtcPrice() {
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState();
     setInterval(() => {
-        fetchPrice()
+        setPrice(fetchPrice())
     }, 10000);
     function fetchPrice() {
+        const price = 0;
         jquery.getJSON(
             "https://blockchain.info/ticker",
             function (data) {
+                console.log(price);
                 price = data["EUR"]["15m"];
-                setPrice(price);
             }
         )
+        console.log(price);
+        return price;
     }
 
     return(
-            <GetPrice price_holder={price} />
+            <GetPrice price={price} />
     );
 }
 
 function GetPrice(props) {
     return(
         <div>
-            1 BTC = {props.price_holder} EUR
+            {props.price}
         </div>
     );
 }

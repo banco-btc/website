@@ -2,14 +2,13 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Clock from './Components/Clock';
 import logo from './logo.svg';
 import './Css/Header.css';
-const btc_price = require('crypto-price');
 
 export default function Header() {
   return (
     <header className="Header">
       <Navbar fixed="top" expand="md">
         <Navbar.Brand href="/">
-          <img src={logo} className="d-inline-block" />
+          <img src={logo} className="d-inline-block" alt="Logo"/>
           Banco BTC
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

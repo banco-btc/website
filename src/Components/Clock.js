@@ -5,7 +5,7 @@ export default function Clock() {
     const [horario, setHorario] = useState();
     setInterval(() => {
         setHorario(new Date().toLocaleTimeString())
-    }, 1000);
+    }, 20000);
     return(
         <GetTime horario={horario}/>
     );
