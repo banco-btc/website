@@ -1,32 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
+    <App />
   </React.StrictMode>,
-  document.getElementById('header')
+  document.getElementById('root')
 );
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Main />
-  </React.StrictMode>,
-  document.getElementById('main')
-);
-/*
-ReactDOM.render(
-  <React.StrictMode>
-    <Footer />
-  </React.StrictMode>,
-  document.getElementById('footer')
-);
-*/
 
 
 
