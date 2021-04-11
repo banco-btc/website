@@ -18,7 +18,7 @@ export default function Main() {
                 <Route path="/single_wallet" component={PrivKeyGen} />
               </Switch>
             </Col>
-            <Col><SideInfo /></Col>
+            {/*<Col><SideInfo /></Col>*/}
           </Row>
         </Container>
       </Router>

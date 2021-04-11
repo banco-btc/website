@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import jquery from 'jquery';
 
 export default function BtcPrice() {
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState(fetchPrice());
     setInterval(() => {
-        fetchPrice()
+        setPrice(fetchPrice());
     }, 10000);
     function fetchPrice() {
+        let price;
         jquery.getJSON(
             "https://blockchain.info/ticker",
             function (data) {
-                price = data["EUR"]["15m"];
-                setPrice(price);
+                price = data["EUR"]["last"];
             }
         )
+        return price;
     }
 
     return(
