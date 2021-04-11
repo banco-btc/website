@@ -1,9 +1,12 @@
 import React from 'react';
 import { Button, ListGroup, ListGroupItem } from 'react-bootstrap';
 import logo from '../logo.svg';
+import { motion } from "framer-motion";
 var crypto = require('crypto');
 var qr = require('qrcode');
 var bs58 = require('bs58');
+
+
 
 export default function PrivKeyGen() {
     const handleClick = () => {
@@ -30,8 +33,18 @@ export default function PrivKeyGen() {
             }
         });
     }
+    const pageTransition = {
+        in: {
+            opacity: 1,
+            y: 0
+        },
+        out: {
+            opacity: 0,
+            y: "-100vh"
+        }
+    };
     return(
-        <div>
+        <motion.div initial="out" animate="in" exit="out" variants={pageTransition}>
             <h2>Clica aqui para criar uma Private Key</h2>
             <Button onClick={handleClick} variant="link">
             <img src={logo} className="Btc-spinner" alt="logo" />
@@ -70,7 +83,7 @@ export default function PrivKeyGen() {
                 <canvas id="wif_qr"></canvas>
             </ListGroupItem>
             </ListGroup>
-        </div>
+        </motion.div>
     );
 }
 
