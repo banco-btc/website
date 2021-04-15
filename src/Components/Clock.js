@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Alert } from 'react-bootstrap';
 
 export default function Clock() {
-    const [horario, setHorario] = useState();
+    const [horario, setHorario] = useState(new Date().toLocaleTimeString());
     setInterval(() => {
         setHorario(new Date().toLocaleTimeString())
-    }, 20000);
+    }, 1000);
     return(
         <GetTime horario={horario}/>
     );
