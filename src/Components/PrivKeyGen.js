@@ -33,18 +33,30 @@ export default function PrivKeyGen() {
             }
         });
     }
-    const pageTransition = {
+    const pageVariants = {
+        initial: {
+            opacity: 0,
+            y: "-100vh",
+            scale: 0.5
+        },
         in: {
             opacity: 1,
-            y: 0
+            y: 0,
+            scale: 1
         },
         out: {
             opacity: 0,
-            y: "-100vh"
+            y: "100vh",
+            scale: 1.2
         }
     };
+    const pageTransition = {
+        duration: 1,
+        type: "tween",
+        ease: "anticipate"
+    };
     return(
-        <motion.div initial="out" animate="in" exit="out" variants={pageTransition}>
+        <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
             <h2>Clica aqui para criar uma Private Key</h2>
             <Button onClick={handleClick} variant="link">
             <img src={logo} className="Btc-spinner" alt="logo" />
@@ -75,11 +87,12 @@ export default function PrivKeyGen() {
                 <div id="final_pk_h"></div>
             </ListGroupItem>
             <ListGroupItem variant="dark">
-                <h5>Agora codificado em base 58: Formato WIF</h5>
+                <h5>Codificado em base 58 temos o Formato WIF:</h5>
+                <p>( Neste formato podemos colocar numa carteira (Electrum, etc) )</p>
                 <div id="wif"></div>
             </ListGroupItem>
             <ListGroupItem variant="dark">
-                <h4>Código QR:</h4>
+                <h4>Código QR:)</h4>
                 <canvas id="wif_qr"></canvas>
             </ListGroupItem>
             </ListGroup>
