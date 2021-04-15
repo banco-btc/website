@@ -13,7 +13,7 @@ export default function Main() {
       <Router>
         <Container fluid="true" className="">
           <Row>
-            <Col xs={12} xl={8}>
+            <Col>
               <AnimatePresence exitBeforeEnter>
                 <Switch>
                   <Route path="/" exact component={Home} />
@@ -21,7 +21,6 @@ export default function Main() {
                 </Switch>
               </AnimatePresence>
             </Col>
-            {/*<Col><SideInfo /></Col>*/}
           </Row>
         </Container>
       </Router>
