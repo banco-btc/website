@@ -1,5 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import './Css/Footer.css';
+import Clock from './Components/Clock';
 
 export default function Footer() {
     return (
@@ -7,6 +8,7 @@ export default function Footer() {
         <Container className="p-4 text-align-center">
           <Row>
             <div>Criado por:</div>
+            <Clock />
           </Row>
           <Row>
             <Col xl={2}>

@@ -11,7 +11,7 @@ export default function Main() {
   return (
     <main className="Main">
       <Router>
-        <Container fluid="true" className="p-2 pt-5">
+        <Container fluid="true" className="">
           <Row>
             <Col xs={12} xl={8}>
               <AnimatePresence exitBeforeEnter>
