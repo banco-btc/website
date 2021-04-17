@@ -1,12 +1,11 @@
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import Clock from './Components/Clock';
 import logo from './logo.svg';
 import './Css/Header.css';
 
 export default function Header() {
   return (
     <header className="Header">
-      <Navbar fixed="top" expand="md">
+      <Navbar expand="md">
         <Navbar.Brand href="/">
           <img src={logo} className="d-inline-block" alt="Logo"/>
           Banco BTC

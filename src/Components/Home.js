@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from 'react-bootstrap';
 import { motion } from "framer-motion";
 import { Particles } from 'react-particles-js';
 import logo from '../logo.svg';
@@ -129,7 +128,7 @@ export default function Home() {
                         duration: 0.4
                       },
                       push: {
-                        particles_nb: 10
+                        particles_nb: 5
                       },
                       remove: {
                         particles_nb: 2

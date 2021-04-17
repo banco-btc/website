@@ -12,18 +12,14 @@ export default function Main() {
   return (
     <main className="Main">
       <Router>
-        <Container fluid="true" className="">
-          <Row>
-            <Col>
-              <AnimatePresence exitBeforeEnter>
-                <Switch>
-                  <Route path="/" exact component={Home} />
-                  <Route path="/single_wallet" component={SingleWallet} />
-                  <Route path="/sobrenos" component={Sobrenos} />
-                </Switch>
-              </AnimatePresence>
-            </Col>
-          </Row>
+        <Container fluid="true">
+          <AnimatePresence exitBeforeEnter>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/single_wallet" component={SingleWallet} />
+              <Route path="/sobrenos" component={Sobrenos} />
+            </Switch>
+          </AnimatePresence>
         </Container>
       </Router>
     </main>
