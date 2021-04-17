@@ -2,14 +2,11 @@ import React from 'react';
 import { Accordion, Button, Card, OverlayTrigger, Popover } from 'react-bootstrap';
 import logo from '../logo.svg';
 import { motion } from "framer-motion";
-import { Tooltip } from 'bootstrap';
 var crypto = require('crypto');
 var qr = require('qrcode');
 var bs58 = require('bs58');
 
-
-
-export default function PrivKeyGen() {
+export default function SingleWallet() {
     const handleClick = () => {
         const VERS_MAINNET = '80';
         const VERS_TESTNET = 'EF';
@@ -28,7 +25,7 @@ export default function PrivKeyGen() {
         document.getElementById("final_pk_h").innerHTML = final_pk_h;
         const wif = bs58.encode(Buffer.from(final_pk_h, 'hex'));
         document.getElementById("wif").innerHTML = wif;
-        qr.toCanvas(document.getElementById("wif_qr"), wif, function(error) {
+        qr.toCanvas(document.getElementById("wif_qr"), wif, function (error) {
             if (error) {
                 console.error(error)
             }
@@ -58,17 +55,17 @@ export default function PrivKeyGen() {
     };
     const dica1 = (
         <Popover id="popover-basic">
-          <Popover.Title as="h3">O que é hex?</Popover.Title>
-          <Popover.Content>
-            Enquanto que no dia a dia usamos os números em base decimal, na computação é normal usarmos o sistema hexadecimal (ou hex), composto pelos digitos: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F. Ou seja, se quiseres escrever o número 10, em hex é o A!
+            <Popover.Title as="h3">O que é hex?</Popover.Title>
+            <Popover.Content>
+                Enquanto que no dia a dia usamos os números em base decimal, na computação é normal usarmos o sistema hexadecimal (ou hex), composto pelos digitos: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F. Ou seja, se quiseres escrever o número 10, em hex é o A!
           </Popover.Content>
         </Popover>
-      );
-    return(
+    );
+    return (
         <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
             <h2>Clica aqui para criar uma chave privada bitcoin, e o respectivo endereço</h2>
             <Button onClick={handleClick} variant="link">
-            <img src={logo} className="Btc-spinner" alt="logo" />
+                <img src={logo} className="Btc-spinner" alt="logo" />
             </Button>{' '}
             <Accordion>
                 <Card>
@@ -79,16 +76,16 @@ export default function PrivKeyGen() {
                     </Card.Header>
                     <Accordion.Collapse eventKey="0">
                         <Card.Body className="text-dark">
-                                <h4 className="d-inline">Private key (hex):</h4> 
-                                <OverlayTrigger className="d-inline align-text-top" trigger="hover" placement="bottom" delay={{ show: 50, hide: 200 }} overlay={dica1}>
-                                    <a>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                                        </svg>
-                                    </a>
-                                </OverlayTrigger>
-                            
+                            <h4 className="d-inline">Private key (hex):</h4>
+                            <OverlayTrigger className="d-inline align-text-top" trigger="hover" placement="bottom" delay={{ show: 50, hide: 200 }} overlay={dica1}>
+                                <a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    </svg>
+                                </a>
+                            </OverlayTrigger>
+
                             <div id="pk_h"></div>
                             <h5>Vamos adicionar o prefixo '80' para indicar que se trata da Mainnet:</h5>
                             <div id="vers_pk_h"></div>
