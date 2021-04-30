@@ -16,8 +16,6 @@ export default function SingleWallet() {
         document.getElementById("pk_h").innerHTML = pk_h;
         document.getElementById("pk_h2").innerHTML = pk_h;
         document.getElementById("pk_h3").innerHTML = pk_h;
-        document.getElementById("pk_h4").innerHTML = pk_h;
-        document.getElementById("pk_h5").innerHTML = pk_h;
         //Mainnet
         {
             //WIF Mainnet
@@ -65,31 +63,6 @@ export default function SingleWallet() {
                 const final_address = bs58.encode(Buffer.from(address, 'hex'));
                 document.getElementById("final_address_mainnet_P2PKH").innerHTML = final_address;
             }
-            {//Public Key Mainnet P2SH
-                const VERS_P2SH = '05';
-                const pubk = ec.getPublic(Buffer.from(pk_h, 'hex'));
-                const pubk_h = pubk.toString('hex').toUpperCase();
-                document.getElementById("pubk_h_mainnet_P2SH").innerHTML = pubk_h;
-                const pubk_comp = ec.getPublicCompressed(Buffer.from(pk_h, 'hex'));
-                const pubk_comp_h = pubk_comp.toString('hex').toUpperCase();
-                document.getElementById("pubk_h_comp_mainnet_P2SH").innerHTML = pubk_comp_h;
-                const pubk_h_hash1 = crypto.createHash("sha256").update(pubk_h, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash1_mainnet_P2SH").innerHTML = pubk_h_hash1;
-                const pubk_h_hash2 = crypto.createHash("ripemd160").update(pubk_h_hash1, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_mainnet_P2SH").innerHTML = pubk_h_hash2;
-                const pubk_h_hash2_with_vers = VERS_P2SH + pubk_h_hash2;
-                document.getElementById("pubk_h_hash2_with_vers_mainnet_P2SH").innerHTML = pubk_h_hash2_with_vers;
-                const pubk_h_hash2_with_vers_hash1 = crypto.createHash("sha256").update(pubk_h_hash2_with_vers, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_with_vers_hash1_mainnet_P2SH").innerHTML = pubk_h_hash2_with_vers_hash1;
-                const pubk_h_hash2_with_vers_hash2 = crypto.createHash("sha256").update(pubk_h_hash2_with_vers_hash1, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_with_vers_hash2_mainnet_P2SH").innerHTML = pubk_h_hash2_with_vers_hash2;
-                const pub_checksum = pubk_h_hash2_with_vers_hash2.substr(0, 8);
-                document.getElementById("pub_checksum_mainnet_P2SH").innerHTML = pub_checksum;
-                const address = VERS_P2SH + pubk_h_hash2 + pub_checksum;
-                document.getElementById("address_mainnet_P2SH").innerHTML = address;
-                const final_address = bs58.encode(Buffer.from(address, 'hex'));
-                document.getElementById("final_address_mainnet_P2SH").innerHTML = final_address;                
-            }
         }
         //Testnet
         {
@@ -136,31 +109,6 @@ export default function SingleWallet() {
                 document.getElementById("address_testnet_P2PKH").innerHTML = address;
                 const final_address = bs58.encode(Buffer.from(address, 'hex'));
                 document.getElementById("final_address_testnet_P2PKH").innerHTML = final_address;
-            }
-            {//Public Key Testnet P2SH
-                const VERS_P2SH = 'C4';
-                const pubk = ec.getPublic(Buffer.from(pk_h, 'hex'));
-                const pubk_h = pubk.toString('hex').toUpperCase();
-                document.getElementById("pubk_h_testnet_P2SH").innerHTML = pubk_h;
-                const pubk_comp = ec.getPublicCompressed(Buffer.from(pk_h, 'hex'));
-                const pubk_comp_h = pubk_comp.toString('hex').toUpperCase();
-                document.getElementById("pubk_h_comp_testnet_P2SH").innerHTML = pubk_comp_h;
-                const pubk_h_hash1 = crypto.createHash("sha256").update(pubk_h, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash1_testnet_P2SH").innerHTML = pubk_h_hash1;
-                const pubk_h_hash2 = crypto.createHash("ripemd160").update(pubk_h_hash1, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_testnet_P2SH").innerHTML = pubk_h_hash2;
-                const pubk_h_hash2_with_vers = VERS_P2SH + pubk_h_hash2;
-                document.getElementById("pubk_h_hash2_with_vers_testnet_P2SH").innerHTML = pubk_h_hash2_with_vers;
-                const pubk_h_hash2_with_vers_hash1 = crypto.createHash("sha256").update(pubk_h_hash2_with_vers, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_with_vers_hash1_testnet_P2SH").innerHTML = pubk_h_hash2_with_vers_hash1;
-                const pubk_h_hash2_with_vers_hash2 = crypto.createHash("sha256").update(pubk_h_hash2_with_vers_hash1, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_with_vers_hash2_testnet_P2SH").innerHTML = pubk_h_hash2_with_vers_hash2;
-                const pub_checksum = pubk_h_hash2_with_vers_hash2.substr(0, 8);
-                document.getElementById("pub_checksum_testnet_P2SH").innerHTML = pub_checksum;
-                const address = VERS_P2SH + pubk_h_hash2 + pub_checksum;
-                document.getElementById("address_testnet_P2SH").innerHTML = address;
-                const final_address = bs58.encode(Buffer.from(address, 'hex'));
-                document.getElementById("final_address_testnet_P2SH").innerHTML = final_address;
             }
         }
     }
@@ -350,42 +298,6 @@ export default function SingleWallet() {
                                             <h5>Codificamos em base 58 e temos o Endereço Bitcoin:</h5>
                                             <div id="final_address_mainnet_P2PKH"></div>
                                         </Col>
-                                        <Col>{/*>>>>>>>>>>>>>>>>>>>>P2SH:<<<<<<<<<<<<<<<<<<<<*/}
-                                            <h5>Para obter o endereço bitcoin P2SH vamos usar a "Private key (em hex)":</h5>
-                                            <div id="pk_h3"></div>
-                                            <div>
-                                                <h5 className="d-inline">Vamos gerar uma chave pública por criptografia de curvas elípticas: (em hex)</h5>
-                                                <OverlayTrigger className="d-inline" trigger="hover" placement="bottom" delay={{ show: 50, hide: 200 }} overlay={dica3}>
-                                                    <a>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-info-circle" viewBox="0 0 16 16">
-                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                                                        </svg>
-                                                    </a>
-                                                </OverlayTrigger>
-                                            </div>
-                                            <div id="pubk_h_mainnet_P2SH"></div>
-                                            <div><strong>Também existe a versão comprimida, mas não vamos usar:</strong></div>
-                                            <div id="pubk_h_comp_mainnet_P2SH"></div>
-                                            <h5>Passamos a chave pública por um SHA256:</h5>
-                                            <div id="pubk_h_hash1_mainnet_P2SH"></div>
-                                            <h5>Passamos agora pelo Ripemd160: (guardamos este valor para usar depois)</h5>
-                                            <div id="pubk_h_hash2_mainnet_P2SH"></div>
-                                            <div className="border border-dark rounded-lg">
-                                                <h5>Agora adicionamos '05' no início pois estamos a criar um endereço P2SH Mainnet:</h5>
-                                                <div id="pubk_h_hash2_with_vers_mainnet_P2SH"></div>
-                                                <h5>Passamos pelo SHA256:</h5>
-                                                <div id="pubk_h_hash2_with_vers_hash1_mainnet_P2SH"></div>
-                                                <h5>Passamos pelo SHA256 outra vez:</h5>
-                                                <div id="pubk_h_hash2_with_vers_hash2_mainnet_P2SH"></div>
-                                                <h5>Temos aqui os 4 primeiros Bytes (checksum):</h5>
-                                                <div id="pub_checksum_mainnet_P2SH"></div>
-                                            </div>
-                                            <h5>Juntar '05' + Valor que guardámos + checksum:</h5>
-                                            <div id="address_mainnet_P2SH"></div>
-                                            <h5>Codificamos em base 58 e temos o Endereço Bitcoin:</h5>
-                                            <div id="final_address_mainnet_P2SH"></div>
-                                        </Col>
                                     </Row>
                                 </Col>
                                 {/*>>>>>>>>>>>>>>>>>>>>TESTNET:<<<<<<<<<<<<<<<<<<<<*/}
@@ -421,7 +333,7 @@ export default function SingleWallet() {
                                     <Row>
                                         <Col>{/*>>>>>>>>>>>>>>>>>>>>P2PKH:<<<<<<<<<<<<<<<<<<<<*/}
                                         <h5>Para obter o endereço bitcoin P2PKH vamos usar a "Private key (em hex)":</h5>
-                                        <div id="pk_h4"></div>
+                                        <div id="pk_h3"></div>
                                         <div>
                                             <h5 className="d-inline">Vamos gerar uma chave pública por criptografia de curvas elípticas: (em hex)</h5>
                                             <OverlayTrigger className="d-inline" trigger="hover" placement="bottom" delay={{ show: 50, hide: 200 }} overlay={dica3}>
@@ -454,42 +366,6 @@ export default function SingleWallet() {
                                         <div id="address_testnet_P2PKH"></div>
                                         <h5>Codificamos em base 58 e temos o Endereço Bitcoin:</h5>
                                         <div id="final_address_testnet_P2PKH"></div>
-                                        </Col>
-                                        <Col>{/*>>>>>>>>>>>>>>>>>>>>P2SH:<<<<<<<<<<<<<<<<<<<<*/}
-                                            <h5>Para obter o endereço bitcoin P2SH vamos usar a "Private key (em hex)":</h5>
-                                            <div id="pk_h5"></div>
-                                            <div>
-                                                <h5 className="d-inline">Vamos gerar uma chave pública por criptografia de curvas elípticas: (em hex)</h5>
-                                                <OverlayTrigger className="d-inline" trigger="hover" placement="bottom" delay={{ show: 50, hide: 200 }} overlay={dica3}>
-                                                    <a>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-info-circle" viewBox="0 0 16 16">
-                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                                                        </svg>
-                                                    </a>
-                                                </OverlayTrigger>
-                                            </div>
-                                            <div id="pubk_h_testnet_P2SH"></div>
-                                            <div><strong>Também existe a versão comprimida, mas não vamos usar:</strong></div>
-                                            <div id="pubk_h_comp_testnet_P2SH"></div>
-                                            <h5>Passamos a chave pública por um SHA256:</h5>
-                                            <div id="pubk_h_hash1_testnet_P2SH"></div>
-                                            <h5>Passamos agora pelo Ripemd160: (guardamos este valor para usar depois)</h5>
-                                            <div id="pubk_h_hash2_testnet_P2SH"></div>
-                                            <div className="border border-dark rounded-lg">
-                                                <h5>Agora adicionamos 'C4' no início pois estamos a criar um endereço P2SH Testnet:</h5>
-                                                <div id="pubk_h_hash2_with_vers_testnet_P2SH"></div>
-                                                <h5>Passamos pelo SHA256:</h5>
-                                                <div id="pubk_h_hash2_with_vers_hash1_testnet_P2SH"></div>
-                                                <h5>Passamos pelo SHA256 outra vez:</h5>
-                                                <div id="pubk_h_hash2_with_vers_hash2_testnet_P2SH"></div>
-                                                <h5>Temos aqui os 4 primeiros Bytes (checksum):</h5>
-                                                <div id="pub_checksum_testnet_P2SH"></div>
-                                            </div>
-                                            <h5>Juntar 'C4' + Valor que guardámos + checksum:</h5>
-                                            <div id="address_testnet_P2SH"></div>
-                                            <h5>Codificamos em base 58 e temos o Endereço Bitcoin:</h5>
-                                            <div id="final_address_testnet_P2SH"></div>
                                         </Col>
                                     </Row>
                                 </Col>
