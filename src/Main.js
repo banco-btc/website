@@ -2,12 +2,10 @@ import React from 'react';
 import './Css/Main.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import SingleWallet from "./Components/SingleWallet";
-import Sobrenos from "./Components/Sobrenos";
+import SingleWallet2 from "./Components/SingleWallet2";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Components/Home';
-import SideInfo from './Components/SideInfo';
 import { AnimatePresence } from "framer-motion";
-import { Particles } from 'react-particles-js';
 
 export default function Main() {
   return (
@@ -18,6 +16,7 @@ export default function Main() {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/single_wallet" component={SingleWallet} />
+              <Route path="/single_wallet_2" component={SingleWallet2} />
             </Switch>
           </AnimatePresence>
         </Container>

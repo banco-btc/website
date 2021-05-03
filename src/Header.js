@@ -27,6 +27,7 @@ export default function Header() {
             </svg>
             <NavDropdown title="Criar Carteira" id="basic-nav-dropdown">
               <NavDropdown.Item href="/single_wallet">Single Wallet</NavDropdown.Item>
+              <NavDropdown.Item href="/single_wallet_2">Single Wallet 2</NavDropdown.Item>
               <NavDropdown.Item href="/hd_wallet">HD Wallet</NavDropdown.Item>
               <NavDropdown.Item href="/brain_wallet">Brain Wallet</NavDropdown.Item>
             </NavDropdown>
