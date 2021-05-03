@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Particles } from 'react-particles-js';
 import logo from '../logo.svg';
 import BtcBlock from './BtcBlock';
+import { Card } from 'react-bootstrap';
 
 export default function Home() {
     const pageVariants = {
@@ -29,7 +30,16 @@ export default function Home() {
     };
     return(
         <motion.div className="Home" initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
-            <Particles params={{
+            <div>
+              <Card className="align-middle shadow text-dark position-fixed" sm={4}>
+                <Card.Header>
+                  BitBadger
+                </Card.Header>
+                <Card.Body>
+                  Unchain your money, Unchain yourself
+                </Card.Body>
+              </Card>
+              <Particles className="" params={{
                 particles: {
                     number: {
                       value: 20,
@@ -58,7 +68,7 @@ export default function Home() {
                       value: 1,
                       random: false,
                       anim: {
-                        enable: true,
+                        enable: false,
                         speed: 1,
                         opacity_min: 0.1,
                         sync: true
@@ -136,8 +146,8 @@ export default function Home() {
                     }
                   },
                   retina_detect: true
-            }} />
-            Banco BTC
+              }} />
+            </div>
         </motion.div>
     );
 }

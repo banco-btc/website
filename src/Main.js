@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Components/Home';
 import SideInfo from './Components/SideInfo';
 import { AnimatePresence } from "framer-motion";
+import { Particles } from 'react-particles-js';
 
 export default function Main() {
   return (
@@ -17,7 +18,6 @@ export default function Main() {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/single_wallet" component={SingleWallet} />
-              <Route path="/sobrenos" component={Sobrenos} />
             </Switch>
           </AnimatePresence>
         </Container>
