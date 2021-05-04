@@ -1,12 +1,36 @@
 import React from 'react';
 import { Accordion, Button, Card, ListGroup, OverlayTrigger, Popover, Row, Col } from 'react-bootstrap';
-import logo from '../logo.svg';
+import logo from '../../logo.svg';
 import { motion } from "framer-motion";
+import StepByStep from './StepByStep';
 var ec = require('eccrypto');
 var crypto = require('crypto');
 var qr = require('qrcode');
 var bs58 = require('bs58');
 var btc = require('bitcoinjs-lib');
+
+const pageVariants = {
+    initial: {
+        opacity: 0,
+        y: "-100vh",
+        scale: 0.5
+    },
+    in: {
+        opacity: 1,
+        y: 0,
+        scale: 1
+    },
+    out: {
+        opacity: 0,
+        y: "100vh",
+        scale: 1.2
+    }
+};
+const pageTransition = {
+    duration: 1,
+    type: "tween",
+    ease: "anticipate"
+};
 
 export default function SingleWallet() {
     const handleClick = () => {
@@ -112,28 +136,6 @@ export default function SingleWallet() {
             }
         }
     }
-    const pageVariants = {
-        initial: {
-            opacity: 0,
-            y: "-100vh",
-            scale: 0.5
-        },
-        in: {
-            opacity: 1,
-            y: 0,
-            scale: 1
-        },
-        out: {
-            opacity: 0,
-            y: "100vh",
-            scale: 1.2
-        }
-    };
-    const pageTransition = {
-        duration: 1,
-        type: "tween",
-        ease: "anticipate"
-    };
     const dica0 = (
         <Popover id="popover-basic">
             <Popover.Title as="h3">O que é uma Single Wallet??</Popover.Title>
@@ -184,6 +186,7 @@ export default function SingleWallet() {
 
     return (
         <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
+            <StepByStep />
             <Accordion>
                 <Card>
                     <Card.Header className="text-dark">
