@@ -26,11 +26,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-    return ['Gerar a chave privada', 
-            'Adicionar o prefixo da Mainnet: \'80\'', 
-            'Aplicar 2 vezes seguidas a função hash SHA256', 
-            'Selecionar os 8 primeiros caractéres (checksum), para usar no próximo passo',
-            'Juntar \'80\' + '
+    return [<strong>Gerar a chave privada:</strong>, 
+            <strong>Adicionar '80' no início (prefixo da Mainnet):</strong>, 
+            <strong>Aplicar 2 vezes seguidas a função hash SHA256:</strong>, 
+            <strong>Selecionar os 8 primeiros caractéres (checksum), para usar no próximo passo:</strong>,
+            <strong>Juntar '80' + chave privada do passo 1 + checksum do passo 4:</strong>
     ];
 }
 
@@ -52,7 +52,7 @@ function getStepContent(step) {
     }
 }
 
-export default function StepByStep() {
+export default function WifStepByStep() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
@@ -110,7 +110,7 @@ export default function StepByStep() {
         {steps.map((label, index) => (
           <Step key={label}>
             <StepButton onClick={handleStep(index)} completed={completed[index]}>
-              {label}:
+              {label}
             </StepButton>
             <StepContent>
               <Typography>{getStepContent(index)}</Typography>
@@ -137,7 +137,7 @@ export default function StepByStep() {
           </Step>
         ))}
       </Stepper>
-      {activeStep === steps.length && (
+      {activeStep === (steps.length) && (
         <Paper square elevation={0} className={classes.resetContainer}>
           <Typography>All steps completed - you&apos;re finished</Typography>
           <Button onClick={handleReset} className={classes.button}>

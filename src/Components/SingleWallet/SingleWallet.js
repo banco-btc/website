@@ -2,7 +2,7 @@ import React from 'react';
 import { Accordion, Button, Card, ListGroup, OverlayTrigger, Popover, Row, Col } from 'react-bootstrap';
 import logo from '../../logo.svg';
 import { motion } from "framer-motion";
-import StepByStep from './StepByStep';
+import WifStepByStep from './WifStepByStep';
 var ec = require('eccrypto');
 var crypto = require('crypto');
 var qr = require('qrcode');
@@ -186,7 +186,7 @@ export default function SingleWallet() {
 
     return (
         <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
-            <StepByStep />
+            <WifStepByStep />
             <Accordion>
                 <Card>
                     <Card.Header className="text-dark">
