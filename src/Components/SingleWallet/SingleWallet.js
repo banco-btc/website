@@ -1,13 +1,9 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Accordion, Button, Card, ListGroup, OverlayTrigger, Popover, Row, Col } from 'react-bootstrap';
 import logo from '../../logo.svg';
 import { motion } from "framer-motion";
 import WifStepByStep from './WifStepByStep';
-var ec = require('eccrypto');
 var crypto = require('crypto');
-var qr = require('qrcode');
-var bs58 = require('bs58');
-var btc = require('bitcoinjs-lib');
 
 const pageVariants = {
     initial: {
@@ -33,108 +29,14 @@ const pageTransition = {
 };
 
 export default function SingleWallet() {
+    const [pkh, genPkh] = useState("");
     const handleClick = () => {
-        //Gerar Bytes
+        //Gerar 32 Bytes aleatórios
         const pk = crypto.randomBytes(32);
-        const pk_h = pk.toString('hex').toUpperCase();
-        document.getElementById("pk_h").innerHTML = pk_h;
-        document.getElementById("pk_h2").innerHTML = pk_h;
-        document.getElementById("pk_h3").innerHTML = pk_h;
-        //Mainnet
-        {
-            //WIF Mainnet
-            const VERS_MAINNET = '80';
-            const vers_pk_h = VERS_MAINNET + pk_h;
-            document.getElementById("vers_pk_h_mainnet").innerHTML = vers_pk_h;
-            const hash_1 = crypto.createHash("sha256").update(vers_pk_h, "hex").digest('hex').toUpperCase();
-            document.getElementById("hash_1_mainnet").innerHTML = hash_1;
-            const hash_2 = crypto.createHash("sha256").update(hash_1, "hex").digest('hex').toUpperCase();
-            document.getElementById("hash_2_mainnet").innerHTML = hash_2;
-            const priv_checksum = hash_2.substr(0, 8);
-            document.getElementById("priv_checksum_mainnet").innerHTML = priv_checksum;
-            const final_pk_h = (vers_pk_h + priv_checksum);
-            document.getElementById("final_pk_h_mainnet").innerHTML = final_pk_h;
-            const wif = bs58.encode(Buffer.from(final_pk_h, 'hex'));
-            document.getElementById("wif_mainnet").innerHTML = wif;
-            qr.toCanvas(document.getElementById("wif_qr_mainnet"), wif, function (error) {
-                if (error) {
-                    console.error(error)
-                }
-            });
-            
-            {//Public Key Mainnet P2PKH
-                const VERS_P2PKH = '00';
-                const pubk = ec.getPublic(Buffer.from(pk_h, 'hex'));
-                const pubk_h = pubk.toString('hex').toUpperCase();
-                document.getElementById("pubk_h_mainnet_P2PKH").innerHTML = pubk_h;
-                const pubk_comp = ec.getPublicCompressed(Buffer.from(pk_h, 'hex'));
-                const pubk_comp_h = pubk_comp.toString('hex').toUpperCase();
-                document.getElementById("pubk_h_comp_mainnet_P2PKH").innerHTML = pubk_comp_h;
-                const pubk_h_hash1 = crypto.createHash("sha256").update(pubk_h, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash1_mainnet_P2PKH").innerHTML = pubk_h_hash1;
-                const pubk_h_hash2 = crypto.createHash("ripemd160").update(pubk_h_hash1, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_mainnet_P2PKH").innerHTML = pubk_h_hash2;
-                const pubk_h_hash2_with_vers = VERS_P2PKH + pubk_h_hash2;
-                document.getElementById("pubk_h_hash2_with_vers_mainnet_P2PKH").innerHTML = pubk_h_hash2_with_vers;
-                const pubk_h_hash2_with_vers_hash1 = crypto.createHash("sha256").update(pubk_h_hash2_with_vers, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_with_vers_hash1_mainnet_P2PKH").innerHTML = pubk_h_hash2_with_vers_hash1;
-                const pubk_h_hash2_with_vers_hash2 = crypto.createHash("sha256").update(pubk_h_hash2_with_vers_hash1, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_with_vers_hash2_mainnet_P2PKH").innerHTML = pubk_h_hash2_with_vers_hash2;
-                const pub_checksum = pubk_h_hash2_with_vers_hash2.substr(0, 8);
-                document.getElementById("pub_checksum_mainnet_P2PKH").innerHTML = pub_checksum;
-                const address = VERS_P2PKH + pubk_h_hash2 + pub_checksum;
-                document.getElementById("address_mainnet_P2PKH").innerHTML = address;
-                const final_address = bs58.encode(Buffer.from(address, 'hex'));
-                document.getElementById("final_address_mainnet_P2PKH").innerHTML = final_address;
-            }
-        }
-        //Testnet
-        {
-            //WIF Testnet
-            const VERS_TESTNET = 'EF';
-            const vers_pk_h = VERS_TESTNET + pk_h;
-            document.getElementById("vers_pk_h_testnet").innerHTML = vers_pk_h;
-            const hash_1 = crypto.createHash("sha256").update((vers_pk_h), "hex").digest('hex').toUpperCase();
-            document.getElementById("hash_1_testnet").innerHTML = hash_1;
-            const hash_2 = crypto.createHash("sha256").update(hash_1, "hex").digest('hex').toUpperCase();
-            document.getElementById("hash_2_testnet").innerHTML = hash_2;
-            const checksum = hash_2.substr(0, 8);
-            document.getElementById("checksum_testnet").innerHTML = checksum;
-            const final_pk_h = (vers_pk_h + checksum);
-            document.getElementById("final_pk_h_testnet").innerHTML = final_pk_h;
-            const wif = bs58.encode(Buffer.from(final_pk_h, 'hex'));
-            document.getElementById("wif_testnet").innerHTML = wif;
-            qr.toCanvas(document.getElementById("wif_qr_testnet"), wif, function (error) {
-                if (error) {
-                    console.error(error)
-                }
-            });
-            {//Public Key Testnet P2PKH
-                const VERS_P2PKH = '6F';
-                const pubk = ec.getPublic(Buffer.from(pk_h, 'hex'));
-                const pubk_h = pubk.toString('hex').toUpperCase();
-                document.getElementById("pubk_h_testnet_P2PKH").innerHTML = pubk_h;
-                const pubk_comp = ec.getPublicCompressed(Buffer.from(pk_h, 'hex'));
-                const pubk_comp_h = pubk_comp.toString('hex').toUpperCase();
-                document.getElementById("pubk_h_comp_testnet_P2PKH").innerHTML = pubk_comp_h;
-                const pubk_h_hash1 = crypto.createHash("sha256").update(pubk_h, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash1_testnet_P2PKH").innerHTML = pubk_h_hash1;
-                const pubk_h_hash2 = crypto.createHash("ripemd160").update(pubk_h_hash1, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_testnet_P2PKH").innerHTML = pubk_h_hash2;
-                const pubk_h_hash2_with_vers = VERS_P2PKH + pubk_h_hash2;
-                document.getElementById("pubk_h_hash2_with_vers_testnet_P2PKH").innerHTML = pubk_h_hash2_with_vers;
-                const pubk_h_hash2_with_vers_hash1 = crypto.createHash("sha256").update(pubk_h_hash2_with_vers, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_with_vers_hash1_testnet_P2PKH").innerHTML = pubk_h_hash2_with_vers_hash1;
-                const pubk_h_hash2_with_vers_hash2 = crypto.createHash("sha256").update(pubk_h_hash2_with_vers_hash1, 'hex').digest('hex').toUpperCase();
-                document.getElementById("pubk_h_hash2_with_vers_hash2_testnet_P2PKH").innerHTML = pubk_h_hash2_with_vers_hash2;
-                const pub_checksum = pubk_h_hash2_with_vers_hash2.substr(0, 8);
-                document.getElementById("pub_checksum_testnet_P2PKH").innerHTML = pub_checksum;
-                const address = VERS_P2PKH + pubk_h_hash2 + pub_checksum;
-                document.getElementById("address_testnet_P2PKH").innerHTML = address;
-                const final_address = bs58.encode(Buffer.from(address, 'hex'));
-                document.getElementById("final_address_testnet_P2PKH").innerHTML = final_address;
-            }
-        }
+        genPkh(pk.toString('hex').toUpperCase());
+        document.getElementById("pkh").innerHTML = pkh;
+        document.getElementById("pk_h2").innerHTML = pkh;
+        document.getElementById("pk_h3").innerHTML = pkh;
     }
     const dica0 = (
         <Popover id="popover-basic">
@@ -186,7 +88,7 @@ export default function SingleWallet() {
 
     return (
         <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
-            <WifStepByStep />
+            <WifStepByStep privateKey={pkh} />
             <Accordion>
                 <Card>
                     <Card.Header className="text-dark">
@@ -215,7 +117,7 @@ export default function SingleWallet() {
                                     </svg>
                                 </a>
                             </OverlayTrigger>
-                            <div id="pk_h"></div>
+                            <div id="pkh"></div>
                         </div>
                         <Accordion.Toggle as={Button} variant="dark" eventKey="0">
                             Clique para ver o passo a passo!
