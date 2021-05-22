@@ -5,7 +5,7 @@ import Intro from "./Components/Intro";
 import SingleWallet from "./Components/SingleWallet/SingleWallet";
 import BrainWallet from "./Components/BrainWallet/BrainWallet";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from './Components/Home';
+import Home from './Components/Home/Home';
 import { AnimatePresence } from "framer-motion";
 
 export default function Main() {

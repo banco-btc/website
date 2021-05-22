@@ -1,9 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Particles } from 'react-particles-js';
-import logo from '../logo.svg';
-import BtcBlock from './BtcBlock';
-import { Card } from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
 
 export default function Home() {
     const pageVariants = {
@@ -31,14 +29,17 @@ export default function Home() {
     return(
         <motion.div className="Home" initial="initial" animate="in" exit="out" variants={pageVariants} transition={pageTransition}>
             <div>
-              <Card className="align-middle shadow text-dark position-fixed" sm={4}>
-                <Card.Header>
-                  BitBadger
-                </Card.Header>
-                <Card.Body>
-                  Unchain your money, Unchain yourself
-                </Card.Body>
-              </Card>
+              <div className="d-inline-flex position-absolute mx-auto">
+                <Card className="shadow text-dark">
+                  <Card.Header>
+                    BitBadger
+                  </Card.Header>
+                  <Card.Body>
+                    Unchain your money, Unchain yourself
+                  </Card.Body>
+                </Card>
+              </div>
+              
               <Particles className="" params={{
                 particles: {
                     number: {
