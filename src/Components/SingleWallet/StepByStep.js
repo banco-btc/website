@@ -30,25 +30,24 @@ function getSteps() {
             'Adicionar o prefixo da Mainnet: \'80\'', 
             'Aplicar 2 vezes seguidas a função hash SHA256', 
             'Selecionar os 8 primeiros caractéres (checksum), para usar no próximo passo',
-            'Juntar \'80\' + '
+            'Codificar em Base58'
     ];
 }
 
 function getStepContent(step) {
     switch (step) {
         case 0:
-        return `For each ad campaign that you create, you can control how much
-                you're willing to spend on clicks and conversions, which networks
-                and geographical locations you want your ads to show on, and more.`;
+        return `A chave privada é composta por 256bits, posteriormente é convertido em hexadecimal.`;
         case 1:
-        return 'An ad group contains one or more ads which target a shared set of keywords.';
+        return 'Concatenar \'80\' se a chave privada for para a Mainnet ou \'EF\' se se tratar da Testnet';
         case 2:
-        return `Try out different ad text to see what brings in the most customers,
-                and learn how to enhance your ads using features like ad extensions.
-                If you run into any problems with your ads, find out how to tell if
-                they're running and how to resolve approval issues.`;
+        return 'A função SHA256 faz com que a chave fique codificada e não seja possivel descodificar, aplicá-la duas vezes é maximizar a segurança.';
+        case 3:
+        return 'Para colocar a chave privada no modo WIF';
+        case 4:
+        return `Para a chave ficar mais simples de ler e escrever é codificada em Base58`;
         default:
-        return 'Unknown step';
+        return 'TESTE';
     }
 }
 
