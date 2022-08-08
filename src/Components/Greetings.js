@@ -13,8 +13,6 @@ export default function Greetings() {
     }
 
     return(
-        <div>
-            {greeting()}
-        </div>
+        <div>{greeting()}</div>
     );
 }

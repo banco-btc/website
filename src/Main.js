@@ -1,9 +1,11 @@
 import React from 'react';
 import './Css/Main.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import Intro from "./Components/Intro";
 import SingleWallet from "./Components/SingleWallet/SingleWallet";
+import BrainWallet from "./Components/BrainWallet/BrainWallet";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from './Components/Home';
+import Home from './Components/Home/Home';
 import { AnimatePresence } from "framer-motion";
 
 export default function Main() {
@@ -14,7 +16,9 @@ export default function Main() {
           <AnimatePresence exitBeforeEnter>
             <Switch>
               <Route path="/" exact component={Home} />
+              <Route path="/intro" component={Intro} />
               <Route path="/single_wallet" component={SingleWallet} />
+              <Route path="/brain_wallet" component={BrainWallet} />
             </Switch>
           </AnimatePresence>
         </Container>

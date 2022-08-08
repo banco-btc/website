@@ -14,6 +14,7 @@
     "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.4.1",
     "bs58": "^4.0.1",
+    "chokidar": "^3.5.3",
     "cors": "^2.8.5",
     "crypto-price": "^0.0.6",
     "dotenv": "^8.2.0",
